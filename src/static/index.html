@@ -1,0 +1,35 @@
+<head>
+    <link rel='icon' href="/img/wakeonlan.png">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <title>Wake on WAN</title>
+</head>
+<body>
+    <div class='hero hero-body'>
+    <div class='container'>
+        <div id='app'>
+            <div class="field">
+               <label for='mac'>Mac Address</label>
+               <div class="control">
+                    <input class="input" id='mac' type="text" name="mac" placeholder="00:11:22:33:44:55" v-model='macaddr' :class="[validMac]">
+               </div>
+            </div> 
+            <div class="field">
+                <label for='mac'>Password</label>
+                <div class='control'>
+                    <input class="input" id='password' type="text" name="password" placeholder="Password" v-model='password' :class="[validPassword]">
+                </div>
+            </div>
+            <div class='field is-grouped'>
+                <div class='control'>
+                    <button v-on:click='checkForm' class='button is-link'>Submit</button>
+                </div>
+            </div>
+
+            <p class='help' :class="[result.status]">{{ result.text }}</p>
+        </div>
+    </div>
+    </div>
+    <script src='/js/index.js'></script>
+</body>
