@@ -17,21 +17,14 @@ new Vue({
                 mac: this.macaddr
             }
 
-            let headers = {
-                'x-password': this.password
-            }
-
             axios({
                 method: 'post',
                 url: '/post',
-                data: body,
-                headers: headers
+                data: body
             }).then(r => {
-                console.log(r);
                 this.result.status = 'is-success';
                 this.result.text = r.data;
             }, e => {
-                console.log(e.response);
                 this.result.status = 'is-danger';
                 this.result.text = e.response.data;
             })
